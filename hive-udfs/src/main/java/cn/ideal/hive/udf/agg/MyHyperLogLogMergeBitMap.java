@@ -21,7 +21,7 @@ import org.slf4j.LoggerFactory;
         , extended = "自定义近似去重函数bitmap merge")
 public final class MyHyperLogLogMergeBitMap extends AbstractGenericUDAFResolver
 {
-    static final Logger LOG = LoggerFactory.getLogger(MyHyperLogLogMergeBitMap.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(MyHyperLogLogMergeBitMap.class.getName());
 
     @Override
     public GenericUDAFEvaluator getEvaluator(TypeInfo[] parameters)

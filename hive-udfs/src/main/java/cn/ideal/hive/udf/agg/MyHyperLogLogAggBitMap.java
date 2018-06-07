@@ -28,7 +28,7 @@ import java.util.Arrays;
 public class MyHyperLogLogAggBitMap
         extends AbstractGenericUDAFResolver
 {
-    static final Logger LOG = LoggerFactory.getLogger(MyHyperLogLogAggBitMap.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(MyHyperLogLogAggBitMap.class.getName());
 
     @Override
     public GenericUDAFEvaluator getEvaluator(TypeInfo[] parameters)
@@ -62,7 +62,7 @@ public class MyHyperLogLogAggBitMap
         private PrimitiveObjectInspector inputOI;
         protected ObjectInspector outputOI;
         //------------------------------
-        private static final double maxStandardError = 0.023;  //该参数与presto默认一致 需要查询presto文档研究
+        private static final double maxStandardError = 0.023;
 
         @Override
         public ObjectInspector init(Mode mode, ObjectInspector[] parameters)
@@ -154,7 +154,7 @@ public class MyHyperLogLogAggBitMap
                         state.addMemoryUsage(previous.estimatedInMemorySize());
                     }
                 }catch (Exception e){
-                    LOG.error("merge 出错",e);
+                    LOG.error("merge error:",e);
                     throw e;
                 }
             }

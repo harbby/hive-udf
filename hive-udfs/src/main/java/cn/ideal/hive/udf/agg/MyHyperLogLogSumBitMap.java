@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
 public final class MyHyperLogLogSumBitMap
         extends AbstractGenericUDAFResolver
 {
-    static final Logger LOG = LoggerFactory.getLogger(MyHyperLogLogSumBitMap.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(MyHyperLogLogSumBitMap.class.getName());
 
     @Override
     public GenericUDAFEvaluator getEvaluator(TypeInfo[] parameters)
