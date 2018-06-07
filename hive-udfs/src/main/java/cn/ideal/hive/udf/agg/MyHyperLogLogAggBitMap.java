@@ -91,6 +91,7 @@ public class MyHyperLogLogAggBitMap
                 throws HiveException
         {
             final HyperLogLogBuffer state = ((HyperLogLogBuffer) agg);
+            state.addMemoryUsage(-state.getHyperLogLog().estimatedInMemorySize());
             HyperLogLog hll = HllUtil.getNewHyperLogLog(maxStandardError);
             state.setHyperLogLog(hll);
             state.addMemoryUsage(hll.estimatedInMemorySize());
